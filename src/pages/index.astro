@@ -1,38 +1,40 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Layout from "../layouts/Layout.astro";
+import HouseModel from '../components/HouseModel.astro';
+import CSVG from "../../public/construction.svg"
 ---
+<Layout title="Casper's Construction Home">
 
-<Layout title="Caspers Construction Website Dashboard">
-	<main>
-		<h1>Caspers Construction Website Maintenance Dashboard</h1>
-		<p class="instructions">
-			<strong class="bold">Pat:</strong>
-			**This is just a placeholder page. While the website is being built, this page serves as a net for any traffic. Find the links to documentation and resources below.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="/home"
-				title="Website"
-				body="Work in progress."
-			/>
+	<section id="house-model-canvas"  class="w-full border-b border-secondary  h-screen relative ">
 
-			<Card
-				href="https://www.notion.so/5cad2908f93b411f8e85c658acdb8ffc"
-				title="Documentation"
-				body="Notion page of notes and resources for the project."
-			/>
-			<Card
-				href="https://github.com/twopats/caspers-construction-website"
-				title="Github"
-				body="Private Github repository containing the source code (This will 404, request Pat for access)"
-			/>
-			<Card
-				href="https://caspersconstruction.net"
-				title="Old Site"
-				body="Previous Site"
-			/>
-		</ul>
-	</main>
+
+	<h1 class="m-8 text-black mt-16   p-4 absolute uppercase text-4xl hover:underline transform duration-200 cursor-pointer  tracking-wide">
+		<span>
+		Casper's
+		</span>
+
+	<br>
+
+
+			<span class="text-primary">
+			Construction
+		</span>
+			<br>
+			<span class="">
+
+			Corporation
+		</span>
+	</h1>
+
+
+		<img src="/construction.svg" class="h-96 absolute bottom-0 right-0 " alt="">
+	</section>
+
+
+
+	<!-- <section  class="  overflow-hidden w-full h-52 bg-black"> -->
+	<!-- 	</section> -->
+
+
+
 </Layout>
-
