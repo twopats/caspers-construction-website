@@ -2,13 +2,16 @@
 import Layout from "../layouts/Layout.astro";
 import HouseModel from '../components/HouseModel.astro';
 import CSVG from "../../public/construction.svg"
+
+const partners = await Astro.glob("../../public/partners/*.{png,jpg,jpeg,gif,svg}")
+console.log(partners)
 ---
 <Layout title="Casper's Construction Home">
 
-	<section id="house-model-canvas"  class="w-full border-b border-secondary  h-screen relative ">
+	<div id="house-model-canvas"  class="grid-canvas w-full border-secondary  h-4/5 relative ">
 
 
-	<h1 class="m-8 text-black mt-16   p-4 absolute uppercase text-4xl hover:underline transform duration-200 cursor-pointer  tracking-wide">
+	<h1  class="m-8 text-black mt-16   p-4 absolute uppercase text-4xl hover:underline transform duration-200 cursor-pointer  tracking-wide">
 		<span>
 		Casper's
 		</span>
@@ -28,12 +31,37 @@ import CSVG from "../../public/construction.svg"
 
 
 		<img src="/construction.svg" class="h-96 absolute bottom-0 right-0 " alt="">
-	</section>
+	</div>
+	<div id="partners" class=" my-4   overflow-x-hidden    ">
 
 
 
-	<!-- <section  class="  overflow-hidden w-full h-52 bg-black"> -->
-	<!-- 	</section> -->
+	<div id="partners-slide" class=" flex animate-partners">
+
+
+
+	<div class="flex justify-center items-center  ">
+{[...Array(4)].map(() => {
+	return partners.map((partner) => {
+		return (
+			<img src={partner.default.src} class="h-10 mr-16    " alt="">
+		)
+	})
+
+})}
+	</div>
+
+			</div>
+
+	</div>
+	<div class="w-full h-screen bg-primary"></div>
+	<div class="w-full h-screen "></div>
+
+
+
+
+	<!-- <div  class="  overflow-hidden w-full h-52 bg-black"> -->
+	<!-- 	</div> -->
 
 
 
