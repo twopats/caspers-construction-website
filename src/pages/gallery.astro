@@ -1,8 +1,25 @@
-
 ---
-import Layout from '../layouts/Layout.astro'
+import Layout from "../layouts/Layout.astro";
+
+const showcaseImages = await Astro.glob(
+	"../../public/showcase/*.{png,jpg,jpeg,gif,svg}",
+);
+
+console.log(showcaseImages);
 ---
 
 <Layout title="Gallery">
-	<div class="w-screen h-screen"></div>
+	<div class="w-screen flex flex-wrap gap-4 m-8">
+		{
+			showcaseImages.map((image) => {
+				return (
+					<img
+						src={image.default.src}
+						alt=""
+						class="w-64 aspect-video object-cover cursor-pointer hover:brightness-110"
+					/>
+				);
+			})
+		}
+	</div>
 </Layout>

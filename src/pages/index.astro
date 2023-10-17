@@ -1,68 +1,125 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import HouseModel from '../components/HouseModel.astro';
-import CSVG from "../../public/construction.svg"
 
-const partners = await Astro.glob("../../public/partners/*.{png,jpg,jpeg,gif,svg}")
-console.log(partners)
+const partners = await Astro.glob(
+	"../../public/partners/*.{png,jpg,jpeg,gif,svg}",
+);
+
+const showcaseImages = await Astro.glob(
+	"../../public/showcase/*.{png,jpg,jpeg,gif,svg}",
+);
+
+console.log(showcaseImages);
 ---
+
 <Layout title="Casper's Construction Home">
-
-	<div id="house-model-canvas"  class="grid-canvas w-full border-secondary  h-4/5 relative ">
-
-
-	<h1  class="m-8 text-black mt-16   p-4 absolute uppercase text-4xl hover:underline transform duration-200 cursor-pointer  tracking-wide">
-		<span>
-		Casper's
-		</span>
-
-	<br>
-
-
-			<span class="text-primary">
-			Construction
-		</span>
-			<br>
-			<span class="">
-
-			Corporation
-		</span>
-	</h1>
-
-
-		<img src="/construction.svg" class="h-96 absolute bottom-0 right-0 " alt="">
+	<div
+		id="house-model-canvas"
+		class="grid-canvas w-full border-secondary h-4/5 relative flex enter"
+	>
+		<h1
+			class="m-8 text-black mt-16 absolute p-4 uppercase text-4xl hover:underline transform duration-200 cursor-pointer tracking-wide"
+		>
+			<span> Casper's</span>
+			<br />
+			<span class="text-primary"> Construction</span>
+			<br />
+			<span class=""> Corporation</span>
+		</h1>
+		<div class="w-full h-full justify-end flex items-center">
+			<img
+				src="/showcase/sample-1.jpeg"
+				class="m-8 h-3/4 rounded-xl overflow-hidden"
+				alt=""
+			/>
+		</div>
 	</div>
-	<div id="partners" class=" my-4   overflow-x-hidden    ">
-
-
-
-	<div id="partners-slide" class=" flex animate-partners">
-
-
-
-	<div class="flex justify-center items-center  ">
-{[...Array(4)].map(() => {
-	return partners.map((partner) => {
-		return (
-			<img src={partner.default.src} class="h-10 mr-16    " alt="">
-		)
-	})
-
-})}
-	</div>
-
+	<div id="partners" class="my-8 overflow-x-hidden">
+		<div id="partners-slide" class="flex animate-partners">
+			<div class="flex justify-center items-center">
+				{
+					[...Array(4)].map(() => {
+						return partners.map(
+							(partner) => {
+								return (
+									<img
+										src={
+											partner
+												.default
+												.src
+										}
+										class="h-10 mr-16    "
+										alt=""
+									/>
+								);
+							},
+						);
+					})
+				}
 			</div>
-
+		</div>
 	</div>
-	<div class="w-full h-screen bg-primary"></div>
-	<div class="w-full h-screen "></div>
 
+	<div class="w-full space-y-8 p-8 flex flex-col justify-center">
+		<h2 class="font-bold text-4xl text-primary">SECTION 1 TITLE</h2>
+		<p class="text-md leading-relaxed">
+			Lorem ipsum dolor sit amet, consectetur adipisicing
+			elit. Neque quia in fugiat, quidem corrupti cum
+			dignissimos praesentium, autem dolores id consectetur
+			repudiandae et ratione officia dolor sit nostrum, facere
+			excepturi ipsum nemo ducimus tenetur voluptates
+			recusandae. Facilis reprehenderit libero aliquam veniam
+			iusto ipsum aspernatur nemo porro fuga excepturi, amet
+			doloremque! Suscipit, ipsa, nobis voluptatem iste
+			dignissimos quam cum ea sint in et accusamus nihil neque
+			labore magni odit! Nemo modi inventore deleniti
+			molestiae saepe, soluta eveniet molestias nam dicta,
+			voluptate rerum a. Optio, et? Culpa expedita reiciendis,
+			consectetur dolores earum ullam consequatur eum
+			repellendus eligendi dolore non quis explicabo ratione!
+		</p>
+	</div>
+	<div
+		id="landing-gallery"
+		class="flex w-screen overflow-x-scroll py-8 gap-4"
+	>
+		{
+			showcaseImages.map((image, i) => {
+				if (i > 7) return null;
+				return (
+					<img
+						src={image.default.src}
+						class="w-80 aspect-video hover:brightness-110 cursor-pointer object-cover overflow-hidden inline-block shrink-0"
+						alt=""
+					/>
+				);
+			})
+		}
+	</div>
+	<a href="/gallery"  class="text-primary mx-8 space-x-4 p-4 border border-primary w-min flex whitespace-nowrap  cursor pointer uppercase primary ml-auto hover:brightness-90 bg-white">Go to full gallery 
 
-
+	<img src="/arrow-right.svg" alt="" class="w-4 mx-4 text-primary">
+	</a>
+	<div class="w-full space-y-8 p-8 flex flex-col justify-center">
+		<h2 class="font-bold text-4xl text-primary">SECTION 2 TITLE</h2>
+		<p class="text-md leading-relaxed">
+			Lorem ipsum dolor sit amet, consectetur adipisicing
+			elit. Neque quia in fugiat, quidem corrupti cum
+			dignissimos praesentium, autem dolores id consectetur
+			repudiandae et ratione officia dolor sit nostrum, facere
+			excepturi ipsum nemo ducimus tenetur voluptates
+			recusandae. Facilis reprehenderit libero aliquam veniam
+			iusto ipsum aspernatur nemo porro fuga excepturi, amet
+			doloremque! Suscipit, ipsa, nobis voluptatem iste
+			dignissimos quam cum ea sint in et accusamus nihil neque
+			labore magni odit! Nemo modi inventore deleniti
+			molestiae saepe, soluta eveniet molestias nam dicta,
+			voluptate rerum a. Optio, et? Culpa expedita reiciendis,
+			consectetur dolores earum ullam consequatur eum
+			repellendus eligendi dolore non quis explicabo ratione!
+		</p>
+	</div>
 
 	<!-- <div  class="  overflow-hidden w-full h-52 bg-black"> -->
 	<!-- 	</div> -->
-
-
-
 </Layout>
