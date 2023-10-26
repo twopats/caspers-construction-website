@@ -8,8 +8,6 @@ const partners = await Astro.glob(
 const showcaseImages = await Astro.glob(
 	"../../public/showcase/*.{png,jpg,jpeg,gif,svg}",
 );
-
-console.log(showcaseImages);
 ---
 
 <Layout title="Casper's Construction Home">
@@ -96,9 +94,16 @@ console.log(showcaseImages);
 			})
 		}
 	</div>
-	<a href="/gallery"  class="text-primary mx-8 space-x-4 p-4 border border-primary w-min flex whitespace-nowrap  cursor pointer uppercase primary ml-auto hover:brightness-90 bg-white">Go to full gallery 
+	<a
+		href="/gallery"
+		class="text-primary mx-8 space-x-4 p-4 border border-primary w-min flex whitespace-nowrap cursor pointer uppercase primary ml-auto hover:brightness-90 bg-white"
+		>Go to full gallery
 
-	<img src="/arrow-right.svg" alt="" class="w-4 mx-4 text-primary">
+		<img
+			src="/arrow-right.svg"
+			alt=""
+			class="w-4 mx-4 text-primary"
+		/>
 	</a>
 	<div class="w-full space-y-8 p-8 flex flex-col justify-center">
 		<h2 class="font-bold text-4xl text-primary">SECTION 2 TITLE</h2>
