@@ -12,25 +12,19 @@ const showcaseImages = await Astro.glob(
 
 <Layout title="Casper's Construction Home">
 	<div
-		id="house-model-canvas"
-		class="grid-canvas w-full border-secondary h-4/5 relative flex enter"
+		class="w-full h-4/5 relative text-white flex justify-center flex-col space-y-4"
 	>
-		<h1
-			class="m-8 text-black mt-16 absolute p-4 uppercase text-4xl hover:underline transform duration-200 cursor-pointer tracking-wide"
-		>
-			<span> Casper's</span>
-			<br />
-			<span class="text-primary"> Construction</span>
-			<br />
-			<span class=""> Corporation</span>
+		<h1 class="z-10 flex justify-center text-5xl uppercase">
+			Casper's Construction Corporation
 		</h1>
-		<div class="w-full h-full justify-end flex items-center">
-			<img
-				src="/showcase/sample-1.jpeg"
-				class="m-8 h-3/4 rounded-xl overflow-hidden"
-				alt=""
-			/>
-		</div>
+		<h3 class="z-10 text-xl tracking-wider flex justify-center">
+			Long Beach, CA
+		</h3>
+		<img
+			src="/public/showcase/complete/1.jpeg"
+			alt=""
+			class="absolute w-full h-full object-cover brightness-50"
+		/>
 	</div>
 	<div id="partners" class="my-8 overflow-x-hidden">
 		<div id="partners-slide" class="flex animate-partners">
