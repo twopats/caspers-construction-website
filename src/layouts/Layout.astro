@@ -4,6 +4,7 @@ interface Props {
 }
 
 const { title } = Astro.props;
+
 import "../styles/index.css";
 const pages = await Astro.glob("../pages/*.astro");
 
@@ -30,9 +31,49 @@ const sortedPages = pages.sort((a, b) => {
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="bg-white w-screen h-screen overflow-x-hidden">
+	<body class="bg-white w-screen h-screen overflow-x-hidden relative">
+		<div
+			class="fixed w-screen flex translate-x-full  h-screen md:hidden flex-col z-40 bg-stone items-center justify-center duration-100"
+			id="mobileMenu"
+		>
+			<ul class="flex flex-col items-center">
+{sortedPages.map((page) => {
+						if (!page.url) {
+						return (
+							<a
+								href={"/"}
+								class="px-4 py-4 duration-200 hover:text-primary uppercase text-4xl"
+							>
+				home
+							</a>
+						)
+		}
+						<!-- if (!page.url) -->
+						<!-- 	return ( -->
+						<!-- 		<a -->
+						<!-- 			class="px-4 py-4 duration-200 hover:text-primary upercase " -->
+						<!-- 			href="/" -->
+						<!-- 		> -->
+						<!-- 			home -->
+						<!-- 		</a>); -->
+						return (
+							<a
+								href={page.url}
+								class="px-4 py-4 duration-200 hover:text-primary uppercase text-4xl"
+							>
+								{page.url.slice(
+									1,
+									page.url
+										.length,
+								)}
+							</a>
+						);
+
+})}
+			</ul>
+		</div>
 		<nav
-			class="w-full py-4 px-8 duration-300 flex justify-between items-center z-10"
+			class="w-full py-4 px-8 duration-300  justify-between items-center z-10 hidden md:flex"
 		>
 			<a
 				href="tel:+5629871716"
@@ -43,7 +84,7 @@ const sortedPages = pages.sort((a, b) => {
 				<span class=""> (562) 987-1716</span>
 			</a>
 			<ul
-				class="hidden md:flex space-x-8 uppercase font-medium items-center tracking-wide"
+				class="flex space-x-8 uppercase font-medium items-center tracking-wide"
 			>
 				{
 					sortedPages.map((page) => {
@@ -54,8 +95,7 @@ const sortedPages = pages.sort((a, b) => {
 									href="/"
 								>
 									home
-								</a>
-							);
+								</a>);
 						return (
 							<a
 								href={page.url}
@@ -77,8 +117,15 @@ const sortedPages = pages.sort((a, b) => {
 			>
 				Get An Estimate</button
 			>
-			<button class="flex md:hidden">mobile menu</button>
+
 		</nav>
+
+			<button _="on click toggle .translate-x-0 on #mobileMenu then
+				toggle .overflow-y-hidden on <body />
+				" class="md:hidden flex rounded-full m-4 right-0 top-0 fixed border p-2 active:brightness-90 z-50 bg-primary">
+				<img src="/icons/hamburger.svg" alt="" class="w-6 text-white">
+			</button>
+
 		<slot />
 		<section class="w-full h-96 bg-cccgrey"></section>
 		<footer
@@ -119,4 +166,5 @@ const sortedPages = pages.sort((a, b) => {
 			</div>
 		</footer>
 	</body>
+	<script src="https://unpkg.com/hyperscript.org@0.9.12"></script>
 </html>
