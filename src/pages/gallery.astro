@@ -7,13 +7,15 @@ const showcaseImages = await Astro.glob(
 ---
 
 <Layout title="Gallery">
-	<div class="w-screen flex flex-wrap gap-4 py-16">
+	<div
+		class="w-screen grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 py-16"
+	>
 		{
 			showcaseImages.map((image, i: number) => {
 				if (i > 5) return;
 				return (
 					<button
-						class="w-96"
+						class="aspect-video object-cover overflow-hidden "
 						hx-get={`/gallery/${i}`}
 						hx-target="body"
 						hx-trigger="click"

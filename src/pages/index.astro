@@ -51,14 +51,14 @@ const showcaseImages = await Astro.glob(
 	</div>
 	<div
 		id="landing-gallery"
-		class="flex flex-wrap py-8 items-center gap-4 mx-8"
+		class="w-screen grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 py-16"
 	>
 		{
 			showcaseImages.map((image, i) => {
 				if (i > 7) return null;
 				return (
 					<button
-						class="w-96"
+						class=""
 						hx-get={`/gallery/${i}`}
 						hx-target="body"
 						hx-trigger="click"
