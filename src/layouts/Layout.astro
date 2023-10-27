@@ -33,7 +33,7 @@ const sortedPages = pages.sort((a, b) => {
 	</head>
 	<body class="bg-white w-screen h-screen overflow-x-hidden relative">
 		<div
-			class="fixed w-screen flex translate-x-full h-screen md:hidden flex-col z-40 bg-stone items-center justify-center duration-100"
+			class="fixed w-screen flex h-screen md:hidden flex-col z-40 bg-stone items-center justify-center duration-100"
 			id="mobileMenu"
 		>
 			<ul class="flex flex-col items-center">
@@ -116,8 +116,7 @@ const sortedPages = pages.sort((a, b) => {
 		</nav>
 
 		<button
-			_="on click toggle .translate-x-0 on #mobileMenu 
-				"
+			_="on click toggle .-translate-y-full on #mobileMenu"
 			class="md:hidden flex rounded-full m-4 right-0 top-0 fixed border p-2 active:brightness-90 z-50 bg-primary"
 		>
 			<img
