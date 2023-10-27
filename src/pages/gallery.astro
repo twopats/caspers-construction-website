@@ -15,7 +15,7 @@ const showcaseImages = await Astro.glob(
 				if (i > 5) return;
 				return (
 					<button
-						class="aspect-video object-cover overflow-hidden "
+						class=" object-cover overflow-hidden "
 						hx-get={`/gallery/${i}`}
 						hx-target="body"
 						hx-trigger="click"
@@ -23,7 +23,7 @@ const showcaseImages = await Astro.glob(
 					>
 						<img
 							src={image.default.src}
-							class="border-white  aspect-video hover:brightness-110 cursor-pointer object-cover overflow-hidden inline-block  shrink-0"
+							class="border-white   hover:brightness-110 cursor-pointer object-cover overflow-hidden inline-block  shrink-0 bg-center"
 							alt=""
 						/>
 					</button>
