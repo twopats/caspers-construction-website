@@ -9,13 +9,22 @@ const showcaseImages = await Astro.glob(
 <Layout title="Gallery">
 	<div class="w-screen flex flex-wrap gap-4 py-16">
 		{
-			showcaseImages.map((image) => {
+			showcaseImages.map((image, i: number) => {
+				if (i > 5) return;
 				return (
-					<img
-						src={image.default.src}
-						alt=""
-						class="md:w-64 w-full aspect-video object-cover cursor-pointer hover:brightness-110"
-					/>
+					<button
+						class="w-96"
+						hx-get={`/gallery/${i}`}
+						hx-target="body"
+						hx-trigger="click"
+						hx-swap="beforeend"
+					>
+						<img
+							src={image.default.src}
+							class="border-white  aspect-video hover:brightness-110 cursor-pointer object-cover overflow-hidden inline-block  shrink-0"
+							alt=""
+						/>
+					</button>
 				);
 			})
 		}

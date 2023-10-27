@@ -49,16 +49,27 @@ const showcaseImages = await Astro.glob(
 			general contracting needs and desires.
 		</p>
 	</div>
-	<div id="landing-gallery" class="flex flex-wrap py-8 items-center">
+	<div
+		id="landing-gallery"
+		class="flex flex-wrap py-8 items-center gap-4 mx-8"
+	>
 		{
 			showcaseImages.map((image, i) => {
 				if (i > 7) return null;
 				return (
-					<img
-						src={image.default.src}
-						class=" w-1/2 max-w-md border-white border-4 m-auto aspect-video hover:brightness-110 cursor-pointer object-cover overflow-hidden inline-block  shrink-0"
-						alt=""
-					/>
+					<button
+						class="w-96"
+						hx-get={`/gallery/${i}`}
+						hx-target="body"
+						hx-trigger="click"
+						hx-swap="beforeend"
+					>
+						<img
+							src={image.default.src}
+							class="border-white  aspect-video hover:brightness-110 cursor-pointer object-cover overflow-hidden inline-block  shrink-0"
+							alt=""
+						/>
+					</button>
 				);
 			})
 		}
