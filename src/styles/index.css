@@ -4,9 +4,27 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .social-icon {
+    @apply w-8 h-8 cursor-pointer;
+  }
+}
+
 @layer base {
   html {
     font-family: Roboto;
+  }
+
+  .heading {
+    @apply text-4xl uppercase font-thin tracking-widest;
+  }
+
+  .nav-link {
+    @apply px-4 py-4 duration-200 hover:text-primary uppercase text-sm;
+  }
+
+  .interactive {
+    @apply hover:brightness-125 cursor-pointer;
   }
 
   .hero {

@@ -1,0 +1,46 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Portfolio">
+	<div class="px-8 flex flex-col items-center space-y-8">
+		<section class="flex flex-col space-y-8 items-center mt-8">
+			<h1 class="heading">Portfolio</h1>
+			<p class="leading-relaxed max-w-5xl">
+				Lorem ipsum dolor sit amet consectetur
+				adipisicing elit. Ipsum veritatis corporis nihil
+				consectetur suscipit! Enim recusandae itaque,
+				quo vitae iure ut illo consequuntur illum
+				deserunt accusamus minima dignissimos, quae
+				veniam distinctio odit in. Adipisci non
+				repellendus molestiae, repellat tempore nihil ex
+				assumenda quos dolore neque sed sapiente
+				exercitationem nostrum ipsam quasi aliquam!
+				Culpa, incidunt. Omnis eaque autem maxime
+				excepturi impedit esse facere rerum aperiam
+				expedita, odit soluta. Corrupti doloremque
+				saepe, iure aperiam omnis nisi praesentium odit.
+				Odio beatae quidem qui perspiciatis earum
+				accusamus tenetur quia nemo at quas? Magni alias
+				atque eaque corporis dolorem cumque reiciendis
+				animi quasi molestias voluptatum.
+			</p>
+		</section>
+		<section class="flex flex-wrap justify-center">
+			{
+				Array.from({ length: 6 }).map((_, i) => {
+					return (
+						<div class="interactive duration-100 ease-out border border-gray-400">
+							<div class="h-72 aspect-[411/325] bg-primary ">
+								{i}
+							</div>
+							<div class="w-full h-fit p-4">
+								title here
+							</div>
+						</div>
+					);
+				})
+			}
+		</section>
+	</div>
+</Layout>

@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import InfoBlock from "../components/InfoBlock.astro";
 
 const partners = await Astro.glob(
 	"../../public/partners/*.{png,jpg,jpeg,gif,svg}",
@@ -28,27 +29,10 @@ const showcaseImages = await Astro.glob(
 			class="absolute w-full h-full object-cover brightness-50"
 		/>
 	</div>
-	<div class="w-full gap-4 p-8 flex flex-col">
-		<h2 class="text-4xl tracking-widest text-primary">
-			Long Beach Contractor
-		</h2>
-		<p class="text-lg leading-relaxed">
-			Caspers Construction has been a licensed general
-			contractor of quality remodeling since 1968. Operating
-			in Long Beach, CA and surrounding cities in the South
-			Bay and Orange County, we offer a wide variety of home
-			improvement services from custom room additions, kitchen
-			and bathroom remodeling, complete large scale makeovers
-			and construction of custom homes. As home improvement
-			contractors, our reputation is that of quality builder.
-			Attention to detail is never overlooked and our clients
-			building and remodeling experience is of utmost
-			importance to us. To learn more about our services, view
-			the gallery of completed projects and contact us to
-			schedule an appointment where we will discuss your
-			general contracting needs and desires.
-		</p>
-	</div>
+	<InfoBlock
+		heading="Long Beach Contractor"
+		content="Caspers Construction has been a licensed general contractor of quality remodeling since 1968. Operating in Long Beach, CA and surrounding cities in the South Bay and Orange County, we offer a wide variety of home improvement services from custom room additions, kitchen and bathroom remodeling, complete large scale makeovers and construction of custom homes. As home improvement contractors, our reputation is that of quality builder. Attention to detail is never overlooked and our clients building and remodeling experience is of utmost importance to us. To learn more about our services, view the gallery of completed projects and contact us to schedule an appointment where we will discuss your general contracting needs and desires."
+	/>
 	<div
 		id="landing-gallery"
 		class="w-screen grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:gap-4 gap-1 py-4"
@@ -85,26 +69,5 @@ const showcaseImages = await Astro.glob(
 			class="w-4 mx-4 text-primary"
 		/>
 	</a>
-	<div class="w-full space-y-8 p-8 flex flex-col justify-center">
-		<h2 class="font-bold text-4xl text-primary">SECTION 2 TITLE</h2>
-		<p class="text-md leading-relaxed">
-			Lorem ipsum dolor sit amet, consectetur adipisicing
-			elit. Neque quia in fugiat, quidem corrupti cum
-			dignissimos praesentium, autem dolores id consectetur
-			repudiandae et ratione officia dolor sit nostrum, facere
-			excepturi ipsum nemo ducimus tenetur voluptates
-			recusandae. Facilis reprehenderit libero aliquam veniam
-			iusto ipsum aspernatur nemo porro fuga excepturi, amet
-			doloremque! Suscipit, ipsa, nobis voluptatem iste
-			dignissimos quam cum ea sint in et accusamus nihil neque
-			labore magni odit! Nemo modi inventore deleniti
-			molestiae saepe, soluta eveniet molestias nam dicta,
-			voluptate rerum a. Optio, et? Culpa expedita reiciendis,
-			consectetur dolores earum ullam consequatur eum
-			repellendus eligendi dolore non quis explicabo ratione!
-		</p>
-	</div>
-
-	<!-- <div  class="  overflow-hidden w-full h-52 bg-black"> -->
-	<!-- 	</div> -->
+	<InfoBlock heading="" content="" />
 </Layout>

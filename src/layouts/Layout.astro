@@ -21,7 +21,18 @@ const sortedPages = pages.sort((a, b) => {
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Casper's Construction" />
+		<title>{title}</title>
+		<!-- Meta Description Tag -->
+		<meta
+			name="description"
+			content="Specializing in remodeling, room addition, and construction services. Expert contractors offering quality renovation, custom designs, and architecture in Long Beach."
+		/>
+
+		<!-- Meta Keywords Tag (Note: Google largely ignores this tag, but some search engines may still consider it) -->
+		<meta
+			name="keywords"
+			content="remodel, room addition, addition, contractor, Long Beach remodeling, construction, renovation, builders, custom, quality, architecture, home renovation, home improvement, residential remodeling, house renovation, kitchen remodeling, bathroom renovation, bedroom addition, living room construction, basement remodeling, Long Beach construction, Southern California builders, Los Angeles renovation, California remodeling contractors, modern architecture, traditional design, eco-friendly construction, sustainable building, luxury home builders, design and build services, interior design solutions, turnkey construction, project management, custom home design"
+		/>
 		<meta
 			name="viewport"
 			content="width=device-width, initial-scale=1"
@@ -29,8 +40,8 @@ const sortedPages = pages.sort((a, b) => {
 
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
 	</head>
+
 	<body class="bg-white w-screen h-screen overflow-x-hidden relative">
 		<div
 			class="fixed w-screen flex h-screen md:hidden flex-col z-40 bg-stone items-center justify-center duration-100 -translate-y-full"
@@ -45,7 +56,7 @@ const sortedPages = pages.sort((a, b) => {
 									href={
 										"/"
 									}
-									class="px-4 py-4 duration-200 hover:text-primary uppercase text-4xl"
+									class="nav-link"
 								>
 									home
 								</a>
@@ -54,7 +65,7 @@ const sortedPages = pages.sort((a, b) => {
 						return (
 							<a
 								href={page.url}
-								class="px-4 py-4 duration-200 hover:text-primary uppercase text-4xl"
+								class="nav-link"
 							>
 								{page.url.slice(
 									1,
@@ -86,7 +97,7 @@ const sortedPages = pages.sort((a, b) => {
 						if (!page.url)
 							return (
 								<a
-									class="px-4 py-4 duration-200 hover:text-primary"
+									class="px-4 py-4 duration-200 hover:text-primary cursor-pointer"
 									href="/"
 								>
 									home
@@ -95,7 +106,7 @@ const sortedPages = pages.sort((a, b) => {
 						return (
 							<a
 								href={page.url}
-								class="px-4 py-4 duration-200 hover:text-primary"
+								class="px-4 py-4 duration-200 hover:text-primary cursor-pointer"
 							>
 								{page.url.slice(
 									1,
@@ -130,7 +141,7 @@ const sortedPages = pages.sort((a, b) => {
 		<!-- <section class="w-full h-96 bg-cccgrey"></section> -->
 		<footer
 			id="footer"
-			class="bg-dark hidden justify-between items-center text-white flex py-4 px-8 flex-wrap gap-4"
+			class="bg-dark justify-between items-center text-white flex py-4 px-8 flex-wrap gap-4"
 		>
 			<a href="/">
 				<image
@@ -138,32 +149,60 @@ const sortedPages = pages.sort((a, b) => {
 					class="w-24 cursor-pointer"
 				/>
 			</a>
-			<div class="flex flex-col justify-center items-center">
-				<h2 class="text-2xl font-bold uppercase">
-					Casper's Construction
+			<div
+				class="flex flex-col justify-center tracking-widest items-center"
+			>
+				<h2 class="text-lg font-light uppercase">
+					Casper's Construction Corporation
 				</h2>
 				<!-- <p class="text-sm">(562) 987-1716 </p> -->
 			</div>
-			<div class="flex flex-col justify-center uppercase">
-				<!-- <h2 class="text-2xl font-bold">Hours</h2> -->
+			<div class="flex space-x-8">
+				<div
+					class="flex flex-col justify-center uppercase"
+				>
+					<!-- <h2 class="text-2xl font-bold">Hours</h2> -->
 
-				<!-- <p class="text-sm">3530 Long Beach Blvd. Suite 240. Long Beach, CA </p> -->
-				<a
-					href=""
-					class="text-xs tracking-wide font-bold"
-					>Site Map</a
+					<!-- <p class="text-sm">3530 Long Beach Blvd. Suite 240. Long Beach, CA </p> -->
+					<a
+						href=""
+						class="text-xs tracking-wide font-bold"
+						>Site Map</a
+					>
+					<!-- <p class="text-sm">9:00am - 6:00pm</p> -->
+				</div>
+				<div
+					class="flex-1 flex flex-col justify-center uppercase"
 				>
-				<!-- <p class="text-sm">9:00am - 6:00pm</p> -->
+					<a
+						href=""
+						class="text-xs tracking-wide font-bold"
+						>Accessibility</a
+					>
+				</div>
 			</div>
-			<div
-				class="flex-1 flex flex-col justify-center uppercase"
-			>
+			<ul id="socials" class="flex space-x-4">
 				<a
-					href=""
-					class="text-xs tracking-wide font-bold"
-					>Accessibility</a
+					href="https://www.facebook.com/CaspersConstructionCorp"
+					target="_blank"
 				>
-			</div>
+					<img
+						src="/icons/facebook.svg"
+						alt=""
+						class="social-icon"
+					/>
+				</a>
+				<a
+					href="https://www.instagram.com/caspersconstructionco/"
+					target="_blank"
+				>
+					<img
+						src="/icons/instagram.svg"
+						alt=""
+						class="social-icon"
+					/>
+				</a>
+			</ul>
 		</footer>
 	</body>
 	<script src="https://unpkg.com/hyperscript.org@0.9.12"></script>
