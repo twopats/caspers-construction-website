@@ -15,6 +15,14 @@ const sortedPages = pages.sort((a, b) => {
 	if (a.url > b.url) return 1;
 	return 0;
 });
+
+const navItemsData = [
+	{ name: "home", url: "/" },
+	{ name: "about", url: "/about" },
+	{ name: "gallery", url: "/gallery" },
+	{ name: "homeowners", url: "/homeowners" },
+	{ name: "portfolio", url: "/portfolio" },
+];
 ---
 
 <!doctype html>
@@ -49,19 +57,7 @@ const sortedPages = pages.sort((a, b) => {
 		>
 			<ul class="flex flex-col items-center">
 				{
-					sortedPages.map((page) => {
-						if (!page.url) {
-							return (
-								<a
-									href={
-										"/"
-									}
-									class="nav-link"
-								>
-									home
-								</a>
-							);
-						}
+					navItemsData.map((page) => {
 						return (
 							<a
 								href={page.url}
@@ -93,26 +89,13 @@ const sortedPages = pages.sort((a, b) => {
 				class="flex space-x-8 uppercase font-medium items-center tracking-wide"
 			>
 				{
-					sortedPages.map((page) => {
-						if (!page.url)
-							return (
-								<a
-									class="px-4 py-4 duration-200 hover:text-primary cursor-pointer"
-									href="/"
-								>
-									home
-								</a>
-							);
+					navItemsData.map((page) => {
 						return (
 							<a
 								href={page.url}
 								class="px-4 py-4 duration-200 hover:text-primary cursor-pointer"
 							>
-								{page.url.slice(
-									1,
-									page.url
-										.length,
-								)}
+								{page.name}
 							</a>
 						);
 					})
