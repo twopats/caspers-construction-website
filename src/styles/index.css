@@ -8,6 +8,15 @@
   .social-icon {
     @apply w-8 h-8 cursor-pointer;
   }
+
+  .form {
+
+  }
+
+  .form-input {
+    @apply p-2 border mb-4 my-1   
+
+  }
 }
 
 @layer base {

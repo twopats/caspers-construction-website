@@ -9,36 +9,89 @@ const partners = await Astro.glob(
 const showcaseImages = await Astro.glob(
 	"../../public/showcase/*.{png,jpg,jpeg,gif,svg}",
 );
+
+const bathroomShowcaseItems = await Astro.glob(
+	"../../public/showcase/bathrooms/*.jpeg",
+);
+
+const kitchenShowcaseItems = await Astro.glob(
+	"../../public/showcase/kitchen/*.jpeg",
+);
 ---
 
 <Layout title="Casper's Construction Home">
 	<div
-		class="w-full h-4/5 relative text-white flex justify-center flex-col"
+		class="w-full min-h-[600px] aspect-video relative text-white flex flex-col gap-2"
 	>
 		<h1
-			class="z-10 flex justify-center text-5xl uppercase text-center"
+			class="z-10 flex text-7xl font-medium tracking-loose uppercase mx-8 mt-36"
 		>
-			Casper's Construction Corporation
+			Premier Home <br /> building Remodeling <br /> and
+			Renovations
 		</h1>
-		<h3 class="z-10 text-xl tracking-wider flex justify-center">
-			Long Beach, CA
+		<h3 class="z-10 text-5xl tracking-wider flex mx-8">
+			Building Quality Since 1968
 		</h3>
 		<img
 			src="/showcase/complete/1.jpeg"
 			alt=""
 			class="absolute w-full h-full object-cover brightness-50"
 		/>
+		<form
+			action="mailto:lpatipat@icloud.com?subject=free estimate&body=I would like to schedule a free estimate for my home."
+			class="z-10"
+		>
+			<button
+				type="submit"
+				class="bg-primary p-4 w-fit m-8 interactive"
+				>Get a Free Estimate</button
+			>
+		</form>
 	</div>
-	<InfoBlock
-		heading="Long Beach Contractor"
-		content="Caspers Construction has been a licensed general contractor of quality remodeling since 1968. Operating in Long Beach, CA and surrounding cities in the South Bay and Orange County, we offer a wide variety of home improvement services from custom room additions, kitchen and bathroom remodeling, complete large scale makeovers and construction of custom homes. As home improvement contractors, our reputation is that of quality builder. Attention to detail is never overlooked and our clients building and remodeling experience is of utmost importance to us. To learn more about our services, view the gallery of completed projects and contact us to schedule an appointment where we will discuss your general contracting needs and desires."
-	/>
+	<div class="w-full gap-4 p-8 flex flex-col text-center">
+		<h2 class="text-4xl tracking-widest text-primary">
+			Long Beach Contractor
+		</h2>
+		<p class="text-lg leading-relaxed">
+			Caspers Construction has been a licensed general
+			contractor of quality remodeling since 1968. Operating
+			in <strong>Long Beach , CA</strong> and surrounding
+			cities in the <strong>South Bay</strong> and <strong
+				>Orange County</strong
+			>, we offer a wide variety of home improvement services
+			from <a
+				href="/homeowners#custom"
+				class="underline hover:text-primary"
+				>custom room additions</a
+			>, <a
+				href="/homeowners#kitchen"
+				class="underline hover:text-primary">kitchen</a
+			> and <a
+				href="/homeowners#bathroom"
+				class="underline hover:text-primary">bathroom</a
+			>
+			 remodeling, complete large scale makeovers and
+			construction of custom homes. As home improvement
+			contractors, our reputation is that of quality builder.
+			<strong>Attention to detail</strong> is never overlooked
+			and our clients building and remodeling experience is of
+			utmost importance to us. To learn more about our
+			services, view the <a
+				href="/portfolio"
+				class="underline hover:text-primary"
+				>portfolios</a
+			> of completed projects and contact us to schedule an
+			appointment where we will discuss your <strong
+				>general contracting</strong
+			> needs and desires.
+		</p>
+	</div>
 	<div
 		id="landing-gallery"
 		class="w-screen grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:gap-4 gap-1 py-4"
 	>
 		{
-			showcaseImages.map((image, i) => {
+			kitchenShowcaseItems.map((image, i) => {
 				if (i > 7) return null;
 				return (
 					<button
@@ -69,5 +122,189 @@ const showcaseImages = await Astro.glob(
 			class="w-4 mx-4 text-primary"
 		/>
 	</a>
-	<InfoBlock heading="" content="" />
+
+	<section class="w-full gap-4 flex flex-col px-8 my-4">
+		<div class="flex lg:flex-row items-center flex-col gap-4">
+			<img
+				src={bathroomShowcaseItems[0].default.src}
+				class="max-w-xl"
+			/>
+			<div class="text-xl gap-4 flex flex-col leading-10">
+				<h2
+					class="text-4xl lg:px-8 tracking-widest text-primary"
+				>
+					Bathroom Remodeling
+				</h2>
+				<p class="text-xl leading-10 lg:px-8">
+					If you're a homeowner looking to update
+					your home, consider a bathroom remodel.
+					It's more than just a fresh look—it's a
+					smart investment. Contrary to the belief
+					that such renovations are expensive,
+					they actually offer a substantial return
+					according to real estate experts.
+					Looking to enhance your home's value and
+					comfort? Explore our list of bathroom
+					remodeling ideas. Interested? Contact us
+					for a free estimate and turn your
+					bathroom into a profitable investment.
+				</p>
+			</div>
+		</div>
+
+		<a
+			href="/homeowners#bathroom"
+			class="text-white w-full mx-8 space-x-4 p-4 px-8 border border-primary md:w-min flex whitespace-nowrap cursor pointer uppercase primary ml-auto hover:brightness-90 bg-primary justify-center"
+			>More bathroom remodeling
+
+			<img
+				src="/arrow-right.svg"
+				alt=""
+				class="w-4 mx-4 text-primary"
+			/>
+		</a>
+	</section>
+	<section class="w-full gap-4 flex flex-col px-8 my-4">
+		<div class="flex gap-4 lg:flex-row items-center flex-col">
+			<div class="text-xl gap-4 flex flex-col leading-10">
+				<h2
+					class="text-4xl tracking-widest text-primary"
+				>
+					Kitchen Remodeling
+				</h2>
+
+				<p>
+					With decades of expertise in residential
+					projects, Caspers Construction has
+					masterfully transformed countless
+					kitchens, consistently exceeding our
+					clients' expectations. Our team of
+					seasoned professionals excels in
+					efficient installations, ensuring a
+					swift project turnaround without
+					compromising quality. At Caspers
+					Construction, we are passionately
+					committed to turning your dream kitchen
+					into a reality.
+				</p>
+			</div>
+			<div class="flex lg:flex-row flex-col gap-4">
+				<img
+					src={kitchenShowcaseItems[1].default
+						.src}
+					class="max-w-xl"
+				/>
+			</div>
+		</div>
+
+		<a
+			href="/homeowners#kitchen"
+			class="text-white w-full mx-8 space-x-4 p-4 px-8 border border-primary md:w-min flex whitespace-nowrap cursor pointer uppercase primary ml-auto hover:brightness-90 bg-primary justify-center"
+			>More Kitchen remodeling
+
+			<img
+				src="/arrow-right.svg"
+				alt=""
+				class="w-4 mx-4 text-primary"
+			/>
+		</a>
+	</section>
+
+	<section class="w-full gap-4 flex flex-col px-8 my-4">
+		<div class="flex lg:flex-row items-center flex-col gap-4">
+			<img src="/showcase/complete/0.jpg" class="max-w-xl" />
+			<div class="text-xl gap-4 flex flex-col leading-10">
+				<h2
+					class="text-4xl lg:px-8 tracking-widest text-primary"
+				>
+					Complete Home Remodeling
+				</h2>
+				<p class="text-xl leading-10 lg:px-8">
+					Caspers Construction excels in providing
+					superior service, ensuring thorough
+					communication to meet every aspect of
+					our clients' needs. Our team, known for
+					its reliability and trustworthiness,
+					specializes in a variety of services
+					including architectural design, building
+					plans, renovations, and remodels. We
+					commit to delivering excellence in
+					residential construction, tailoring each
+					project to achieve optimal results and
+					customer satisfaction.
+				</p>
+			</div>
+		</div>
+
+		<a
+			href="/homeowners#complete-home"
+			class="text-white w-full mx-8 space-x-4 p-4 px-8 border border-primary md:w-min flex whitespace-nowrap cursor pointer uppercase primary ml-auto hover:brightness-90 bg-primary justify-center"
+			>Complete Home Remodeling
+
+			<img
+				src="/arrow-right.svg"
+				alt=""
+				class="w-4 mx-4 text-primary"
+			/>
+		</a>
+	</section>
+
+	<hr class="bg-gray-200 border-0 dark:bg-gray-700 h-0.5 my-8 mx-8" />
+	<section
+		class="flex px-8 justify-center gap-4 items-center py-20 my-4 flex-col sm:flex-row"
+	>
+		<img src="/ed-footer.jpg" alt="" class="w-52" />
+		<div class="text-4xl text-center font-light px-8 flex-col">
+			<p class="leading-10">
+				As a design-build firm, we are passionate about
+				making your vision a reality. We listen to your
+				concerns and find solutions to the particular
+				needs of your home. For over 50 years, we have
+				provided our services to satisfied customers all
+				over Southern California.
+			</p>
+			<ul id="socials" class="flex space-x-4">
+				<a
+					href="https://www.facebook.com/CaspersConstructionCorp"
+					target="_blank"
+				>
+					<img
+						src="/icons/facebook.svg"
+						alt=""
+						class="social-icon"
+					/>
+				</a>
+				<a
+					href="https://www.instagram.com/caspersconstructionco/"
+					target="_blank"
+				>
+					<img
+						src="/icons/instagram.svg"
+						alt=""
+						class="social-icon"
+					/>
+				</a>
+			</ul>
+		</div>
+	</section>
+
+	<section class="px-8 flex flex-wrap gap-12 my-16">
+		{
+			partners.map((image) => {
+				console.log(image.default.src);
+				return (
+					<img
+						src={image.default.src}
+						class="max-w-xl  h-24 mx-auto p-4"
+					/>
+				);
+			})
+		}
+	</section>
+
+	<div class="sk-ww-google-reviews px-8 py-16" data-embed-id="231695">
+	</div><script
+		src="https://widgets.sociablekit.com/google-reviews/widget.js"
+		async
+		defer></script>
 </Layout>

@@ -1,11 +1,81 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const bathroomShowcaseItems = await Astro.glob(
+	"../../public/showcase/bathrooms/*.jpeg",
+);
 ---
 
 <Layout title="Homeowners">
-	<div class="min-h-screen px-8 flex flex-col items-center space-y-8">
+	<div
+		class="min-h-screen px-8 flex flex-col items-center space-y-8 py-16"
+	>
 		<section class="flex flex-col space-y-8 items-center mt-8">
 			<h1 class="heading">Bathroom Remodel</h1>
+			<p class="leading-relaxed max-w-5xl">
+				If you're a homeowner looking to update your
+				home, consider a bathroom remodel. It's more
+				than just a fresh look—it's a smart investment.
+				Contrary to the belief that such renovations are
+				expensive, they actually offer a substantial
+				return according to real estate experts. Looking
+				to enhance your home's value and comfort?
+				Explore our list of bathroom remodeling ideas.
+				Interested? Contact us for a free estimate and
+				turn your bathroom into a profitable investment.
+			</p>
+
+			<img
+				src="/showcase/bathrooms/1.jpeg"
+				alt=""
+				class="h-96 aspect-video"
+			/>
+			<div class="flex flex-wrap gap-4">
+				{
+					bathroomShowcaseItems.map((item, i) => {
+						return (
+							<img
+								src={
+									item
+										.default
+										.src
+								}
+								alt=""
+								class="w-36 mx-auto aspect-[9/14] object-cover"
+							/>
+						);
+					})
+				}
+			</div>
+		</section>
+
+		<section class="flex flex-col space-y-8 items-center mt-8">
+			<h1 class="heading">Kitchen Remodel</h1>
+			<p class="leading-relaxed max-w-5xl">
+				With decades of expertise in residential
+				projects, Caspers Construction has masterfully
+				transformed countless kitchens, consistently
+				exceeding our clients' expectations. Our team of
+				seasoned professionals excels in efficient
+				installations, ensuring a swift project
+				turnaround without compromising quality. At
+				Caspers Construction, we are passionately
+				committed to turning your dream kitchen into a
+				reality.
+			</p>
+
+			<img
+				src="/showcase/Kitchen/1.jpeg"
+				alt=""
+				class="h-96 aspect-video"
+			/>
+		</section>
+
+		<section
+			id="complete-home"
+			class="flex flex-col space-y-8 items-center mt-8"
+		>
+			<h1 class="heading">Complete Home Remodel</h1>
 			<p class="leading-relaxed max-w-5xl">
 				Lorem ipsum dolor sit amet consectetur
 				adipisicing elit. Ipsum veritatis corporis nihil
@@ -25,12 +95,12 @@ import Layout from "../layouts/Layout.astro";
 				atque eaque corporis dolorem cumque reiciendis
 				animi quasi molestias voluptatum.
 			</p>
+
+			<img
+				src="/showcase/bathrooms/1.jpeg"
+				alt=""
+				class="h-96 aspect-video"
+			/>
 		</section>
-		<img
-			src="/showcase/bathrooms/1.jpeg"
-			alt=""
-			class="h-96 aspect-video"
-		/>
-		<h1 class="heading">Bathroom Kitchen</h1>
 	</div>
 </Layout>

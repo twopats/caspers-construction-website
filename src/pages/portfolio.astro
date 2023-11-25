@@ -1,47 +1,73 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const portfolioItems = [
+	{
+		cover: "/portfolio-items/spanish/cover.jpeg",
+		title: "Modern Interpretation of the Meditterranean or Spanish Style",
+	},
+	{
+		cover: "/portfolio-items/craftsman/0.jpeg",
+		title: "Modern take on the Craftsman style Remodel",
+	},
+	{
+		cover: "/portfolio-items/kitchens/0.jpeg",
+		title: "Kitchens ",
+	},
+];
 ---
 
 <Layout title="Portfolio">
-	<div class="px-8 flex flex-col items-center space-y-8 grow">
+	<div
+		class="px-8 flex flex-col py-16 items-center space-y-8 grow min-h-screen"
+	>
 		<section class="flex flex-col space-y-8 items-center mt-8">
 			<h1 class="heading">Portfolio</h1>
 			<p class="leading-relaxed max-w-5xl">
-				Lorem ipsum dolor sit amet consectetur
-				adipisicing elit. Ipsum veritatis corporis nihil
-				consectetur suscipit! Enim recusandae itaque,
-				quo vitae iure ut illo consequuntur illum
-				deserunt accusamus minima dignissimos, quae
-				veniam distinctio odit in. Adipisci non
-				repellendus molestiae, repellat tempore nihil ex
-				assumenda quos dolore neque sed sapiente
-				exercitationem nostrum ipsam quasi aliquam!
-				Culpa, incidunt. Omnis eaque autem maxime
-				excepturi impedit esse facere rerum aperiam
-				expedita, odit soluta. Corrupti doloremque
-				saepe, iure aperiam omnis nisi praesentium odit.
-				Odio beatae quidem qui perspiciatis earum
-				accusamus tenetur quia nemo at quas? Magni alias
-				atque eaque corporis dolorem cumque reiciendis
-				animi quasi molestias voluptatum.
+				Welcome to Casper’s Construction portfolio,
+				where our craftsmanship tells its own story. As
+				you browse through our portfolio, you'll find a
+				tapestry of projects that showcase our
+				dedication to excellence and our passion for
+				bringing visions to life. Each addition,
+				renovation, and installation is a testament to
+				our team's expertise and unwavering commitment
+				to our clients’ satisfaction. From the
+				foundation to the finishing touches, we pride
+				ourselves on delivering quality that stands the
+				test of time. Here, let the transformed spaces
+				speak to the value and beauty we can create for
+				your home.
 			</p>
 		</section>
-		<section class="flex flex-wrap justify-center">
+		<section class="flex flex-wrap justify-center gap-4">
 			{
-				Array.from({ length: 6 }).map((_, i) => {
+				portfolioItems.map((item, i) => {
 					return (
-						<div class="interactive duration-100 ease-out border border-gray-400">
-							<div class="h-72 aspect-[411/325] bg-primary ">
-								{i}
+						<a
+							href={`/portfolio/${i}`}
+							class="interactive duration-100 ease-out border border-gray-400 "
+						>
+							<div class="w-96 aspect-[411/325]  relative ">
+								<img
+									src={
+										item.cover
+									}
+									alt=""
+									class="w-full h-full object-cover absolute top-0 left-0"
+								/>
 							</div>
-							<div class="w-full h-fit p-4">
-								title here
+							<div class="w-full h-fit p-4 flex flex-wrap">
+								<h5 class="text-ellipsis text-xs">
+									{
+										item.title
+									}
+								</h5>
 							</div>
-						</div>
+						</a>
 					);
 				})
 			}
 		</section>
 	</div>
 </Layout>
-

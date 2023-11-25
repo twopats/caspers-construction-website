@@ -1,0 +1,54 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="estimate">
+	<div class="min-h-screen px-8 py-16">
+		<!--build html  form to send to email-->
+		<h1 class="text-2xl font-bold mb-12">CONTACT FORM</h1>
+		<form
+			action="mailto:lpatipat@icloud.com"
+			id="contact"
+			class="flex-col flex max-w-2xl text-sm"
+			enctype="text/plain"
+			method="get"
+		>
+			<label for="name" form="contact">Name</label>
+			<input
+				required
+				type="text"
+				name="name"
+				id="name"
+				class="form-input"
+				placeholder="i.e. John Doe"
+			/>
+			<label for="email" form="contact">Email</label>
+			<input
+				required
+				type="text"
+				name="email"
+				id="email"
+				class="form-input"
+				placeholder="i.e. john@gmail.com"
+			/>
+
+			<label for="phone" form="contact">Phone</label>
+			<input
+				required
+				type="text"
+				name="phone"
+				id="phone"
+				class="form-input"
+				placeholder="i.e. 555-555-5555"
+			/>
+			<label for="message" form="contact">Message</label>
+			<textarea class="border h-96 p-2"></textarea>
+
+			<button
+				type="submit"
+				class="p-2 px-8 w-fit border bg-primary text-white interactive border-gray-200 my-4"
+				>Submit</button
+			>
+		</form>
+	</div>
+</Layout>

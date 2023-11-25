@@ -4,6 +4,10 @@ import Layout from "../layouts/Layout.astro";
 const showcaseImages = await Astro.glob(
 	"../../public/showcase/*.{png,jpg,jpeg,gif,svg}",
 );
+
+const bathroomImages = await Astro.glob(
+	"../../public/showcase/bathrooms/*.{png,jpg,jpeg,gif,svg}",
+);
 ---
 
 <Layout title="Gallery">
@@ -12,6 +16,31 @@ const showcaseImages = await Astro.glob(
 	>
 		{
 			showcaseImages.map((image, i: number) => {
+				if (i > 5) return;
+				return (
+					<button
+						class=" object-cover overflow-hidden "
+						hx-get={`/gallery/${i}`}
+						hx-target="body"
+						hx-trigger="click"
+						hx-swap="beforeend"
+					>
+						<img
+							src={image.default.src}
+							class="border-white   hover:brightness-110 cursor-pointer object-cover overflow-hidden inline-block  shrink-0 bg-center"
+							alt=""
+						/>
+					</button>
+				);
+			})
+		}
+	</div>
+
+	<div
+		class="w-screen grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 py-16"
+	>
+		{
+			bathroomImages.map((image, i: number) => {
 				if (i > 5) return;
 				return (
 					<button
